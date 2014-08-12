@@ -2,6 +2,15 @@
 
 using namespace dbg;
 
+#ifdef _WIN32
+#include <Windows.h>
+#   define DEBUGREG_CONTEXT_FLAGS CONTEXT_DEBUG_REGISTERS
+#else
+//  CONTEXT_I386 = 0x00010000
+//  CONTEXT_DEBUG_REGISTERS = 0x00000010;
+#   define DEBUGREG_CONTEXT_FLAGS 0x00010010L
+#endif
+
 // Modify context of currently running thread
 CDebugRegisters::CDebugRegisters(DEBUG_CONTEXT& In) {
     Internalize(In);
@@ -35,5 +44,7 @@ void CDebugRegisters::Serialize(DEBUG_CONTEXT& Out) const {
             Out.DR7 |= 1 << (i * 2 + 1);
 
         Out.DR7 |= (static_cast<uintptr_t>(Registers[i].Condition) & 3) << (16 + i * 4);
+
+        Out.Reserved |= DEBUGREG_CONTEXT_FLAGS;
     }
 }
