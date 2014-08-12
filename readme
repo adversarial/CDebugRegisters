@@ -1,0 +1,7 @@
+=== CDebugRegisters
+
+.\CDebugRegisters:
+Provides a simple C++ class to handle x86 debug registers. Designed for Windows, it is compatible with a CONTEXT struct.
+
+.\DebugRegisters:
+	A C wrapper for the CDebugRegisters class
