@@ -43,7 +43,7 @@ void CDebugRegisters::Serialize(DEBUG_CONTEXT& Out) const {
         if (Registers[i].GlobalSet)
             Out.DR7 |= 1 << (i * 2 + 1);
 
-        Out.DR7 |= (static_cast<uintptr_t>(Registers[i].Condition) & 3) << (16 + i * 4);
+        Out.DR7 |= (static_cast<dbgreg_t>(Registers[i].Condition) & 3) << (16 + i * 4);
 
         Out.Reserved |= DEBUGREG_CONTEXT_FLAGS;
     }
