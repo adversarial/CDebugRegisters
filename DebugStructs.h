@@ -10,17 +10,17 @@ namespace dbg {
 typedef uint32_t dbgreg_t;
 
 typedef enum { execution, data_write, io_readwrite, data_readwrite } bpcondition_t;
-typedef enum { DR0, DR1, DR2, DR3 } bpindex_t;
+typedef enum { Dr0, Dr1, Dr2, Dr3 } bpindex_t;
 
 // Can be directly copied into beginning of CONTEXT struct as members are same
 typedef struct {
     dbgreg_t Reserved, // ContextFlags in CONTEXT struct
-             DR0,
-             DR1,
-             DR2,
-             DR3,
-             DR6,
-             DR7;
+             Dr0,
+             Dr1,
+             Dr2,
+             Dr3,
+             Dr6,
+             Dr7;
 } DEBUG_CONTEXT;
 
 typedef struct {

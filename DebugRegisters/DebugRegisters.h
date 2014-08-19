@@ -13,7 +13,7 @@ CDebugRegisters* NewDebugRegisters();
 int DebugRegisters_Internalize(CDebugRegisters* Self, DEBUG_CONTEXT* In);
 int DebugRegisters_Serialize(CDebugRegisters* Self, DEBUG_CONTEXT* Out);
 
-// Returns pointer to array of 4 debug registers (in order DRx)
+// Returns pointer to array of 4 debug registers (in order Drx)
 DebugRegister* DebugRegisters_Get(CDebugRegisters* Self);
 
 #ifdef __cplusplus
