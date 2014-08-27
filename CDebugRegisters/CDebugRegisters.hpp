@@ -19,7 +19,10 @@ public:
     void Internalize(DEBUG_CONTEXT& In);
     void Serialize(DEBUG_CONTEXT& Out) const;
 
+    // public to allow editing (values are all converted on Serialize)
     std::array<DebugRegister, 4> Registers;
+    bool IsTrapException,
+         IsTaskSwitchTrapException;
 };
 
 }

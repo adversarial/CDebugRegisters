@@ -28,4 +28,12 @@ extern "C" {
     DebugRegister* DebugRegisters_Get(CDebugRegisters* Self) {
         return &Self->Registers[0];
     }
+
+    bool DebugRegisters_IsTrapException(CDebugRegisters* Self) {
+        return Self->IsTrapException;
+    }
+
+    void DebugRegisters_SetTrapException(CDebugRegisters* Self, bool Set) {
+        Self->IsTrapException = Set;
+    }
 }
